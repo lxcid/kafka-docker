@@ -20,11 +20,12 @@ This also means that I have removed several features:
 ## Environment Variables
 
 | Name | Description | Default Value |
-| --- | --- | :---: |
+| ---: | --- | :---: |
 | `SCALA_VERSION` | The Scala version | 2.12 |
 | `KAFKA_VERSION` | The Kafka version | 0.10.2.1 |
 | `KAFKA_HOME` | The home directory of Kafka | /opt/kafka |
 | `KAFKA_PORT` | The port to run Kafka on | 9092 |
+| `KAFKA_*` | Any environment variables that begin with `KAFKA_` will be written to `/opt/kafka/config/server.properties` accordingly, except for `KAFKA_VERSION` and `KAFKA_HOME` |  |
 
 ## Usage
 
