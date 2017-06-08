@@ -41,3 +41,9 @@ Some of these features may be added in the future but the goal of this project i
 ```sh
 docker build --tag=lxcid/kafka .
 ```
+
+### Push
+
+```sh
+docker push $DOCKER_ID_USER/kafka
+```

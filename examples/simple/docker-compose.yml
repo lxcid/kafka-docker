@@ -1,0 +1,8 @@
+version: '3'
+services:
+  zookeeper:
+    image: zookeeper
+  kafka:
+    image: lxcid/kafka
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
