@@ -15,7 +15,11 @@ This is heavily based on [wurstmeister/kafka-docker](https://github.com/wurstmei
 
 This also means that I have removed several features:
 
-- No custom init script support
+- No custom init script
+- No create topics
+- No discovering broker list
+
+Some of these features may be added in the future but the goal of this project is to build a production ready Kafka docker image.
 
 ## Environment Variables
 
@@ -25,7 +29,9 @@ This also means that I have removed several features:
 | `KAFKA_VERSION` | The Kafka version | `0.10.2.1` |
 | `KAFKA_HOME` | The home directory of Kafka | `/opt/kafka` |
 | `KAFKA_PORT` | The port to run Kafka on | `9092` |
+| `KAFKA_BROKER_ID` | The id of the broker. This must be set to a unique integer for each broker. | 0 |
 | `KAFKA_LOG_DIRS` | A comma seperated list of directories under which to store log files | `/kafka/kafka-logs-$HOSTNAME` |
+| `KAFKA_ZOOKEEPER_CONNECT` | Zookeeper connection string (see zookeeper docs for details). |  |
 | `KAFKA_*` | Any environment variables that begin with `KAFKA_` (except for `KAFKA_VERSION` and `KAFKA_HOME`) will be written to `/opt/kafka/config/server.properties` accordingly.<br>e.g. `KAFKA_ZOOKEEPER_CONNECT=localhost:2181` ⤑ `zookeeper.connect=localhost:2181` |  |
 
 ## Usage
