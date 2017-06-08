@@ -9,8 +9,8 @@ This is heavily based on [wurstmeister/kafka-docker](https://github.com/wurstmei
 - Use `--no-cache` option when adding packages.
 - Install minimal packages.
 - Avoid external executable scripts in Dockerfile whenever possible.
-- Use entrypoint:
-  - Ensure that `kafka-server-start.sh` are running as pid 1.
+- Use [entrypoint](https://docs.docker.com/engine/reference/builder/#entrypoint):
+  - Ensure that `kafka-server-start.sh` are running as `PID 1`.
   - When running the container with custom commands, it ensure that all the environment variables and configurations are setup accordingly.
 
 This also means that I have removed several features:
@@ -20,7 +20,7 @@ This also means that I have removed several features:
 ## Environment Variables
 
 | Name | Description | Default Value |
-| --- | --- | --- |
+| --- | --- | :---: |
 | `SCALA_VERSION` | The Scala version | 2.12 |
 | `KAFKA_VERSION` | The Kafka version | 0.10.2.1 |
 | `KAFKA_HOME` | The home directory of Kafka | /opt/kafka |
