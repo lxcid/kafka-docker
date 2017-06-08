@@ -1,0 +1,6 @@
+services/kafka/volumes/kafka/*
+!services/kafka/volumes/kafka/.gitkeep
+services/zookeeper/volumes/data/*
+!services/zookeeper/volumes/data/.gitkeep
+services/zookeeper/volumes/datalog/*
+!services/zookeeper/volumes/datalog/.gitkeep

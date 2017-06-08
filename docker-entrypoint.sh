@@ -5,8 +5,16 @@ if [[ -z "$KAFKA_PORT" ]]; then
   export KAFKA_PORT=9092
 fi
 
+if [[ -z "$KAFKA_BROKER_ID" ]]; then
+  export KAFKA_BROKER_ID=-1
+fi
+
 if [[ -z "$KAFKA_LOG_DIRS" ]]; then
   export KAFKA_LOG_DIRS="/kafka/kafka-logs-$HOSTNAME"
+fi
+
+if [[ -z "$KAFKA_LISTENERS" ]]; then
+  export KAFKA_LISTENERS="PLAINTEXT://:$KAFKA_PORT"
 fi
 
 for VAR in `env`

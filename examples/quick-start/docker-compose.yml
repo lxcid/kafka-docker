@@ -1,0 +1,18 @@
+version: '3'
+services:
+  zookeeper:
+    image: zookeeper
+    volumes:
+      - ./services/zookeeper/volumes/data:/data
+      - ./services/zookeeper/volumes/datalog:/datalog
+  kafka:
+    image: lxcid/kafka
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_BROKER_ID=-1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+    volumes:
+      - ./services/kafka/volumes/kafka:/kafka
+    stdin_open: true
+    tty: true
