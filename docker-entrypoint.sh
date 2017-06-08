@@ -5,6 +5,10 @@ if [[ -z "$KAFKA_PORT" ]]; then
   export KAFKA_PORT=9092
 fi
 
+if [[ -z "$KAFKA_LOG_DIRS" ]]; then
+  export KAFKA_LOG_DIRS="/kafka/kafka-logs-$HOSTNAME"
+fi
+
 for VAR in `env`
 do
   if [[ $VAR =~ ^KAFKA_ && ! $VAR =~ ^KAFKA_HOME && ! $VAR =~ ^KAFKA_VERSION ]]; then

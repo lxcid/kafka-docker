@@ -15,17 +15,18 @@ This is heavily based on [wurstmeister/kafka-docker](https://github.com/wurstmei
 
 This also means that I have removed several features:
 
-- No custom scripts
+- No custom init script support
 
 ## Environment Variables
 
 | Name | Description | Default Value |
 | ---: | --- | :---: |
-| `SCALA_VERSION` | The Scala version | 2.12 |
-| `KAFKA_VERSION` | The Kafka version | 0.10.2.1 |
-| `KAFKA_HOME` | The home directory of Kafka | /opt/kafka |
-| `KAFKA_PORT` | The port to run Kafka on | 9092 |
-| `KAFKA_*` | Any environment variables that begin with `KAFKA_` will be written to `/opt/kafka/config/server.properties` accordingly, except for `KAFKA_VERSION` and `KAFKA_HOME`.<br>e.g. `KAFKA_ZOOKEEPER_CONNECT=localhost:2181` ⤑ `zookeeper.connect=localhost:2181` |  |
+| `SCALA_VERSION` | The Scala version | `2.12` |
+| `KAFKA_VERSION` | The Kafka version | `0.10.2.1` |
+| `KAFKA_HOME` | The home directory of Kafka | `/opt/kafka` |
+| `KAFKA_PORT` | The port to run Kafka on | `9092` |
+| `KAFKA_LOG_DIRS` | A comma seperated list of directories under which to store log files | `/kafka/kafka-logs-$HOSTNAME` |
+| `KAFKA_*` | Any environment variables that begin with `KAFKA_` (except for `KAFKA_VERSION` and `KAFKA_HOME`) will be written to `/opt/kafka/config/server.properties` accordingly.<br>e.g. `KAFKA_ZOOKEEPER_CONNECT=localhost:2181` ⤑ `zookeeper.connect=localhost:2181` |  |
 
 ## Usage
 

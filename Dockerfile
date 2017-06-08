@@ -20,6 +20,7 @@ ENV PATH ${PATH}:${KAFKA_HOME}/bin
 COPY docker-entrypoint.sh /usr/local/bin
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
 
+VOLUME ["/kafka"]
 EXPOSE 9092
 
 ENTRYPOINT ["docker-entrypoint.sh"]
