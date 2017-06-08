@@ -25,7 +25,7 @@ This also means that I have removed several features:
 | `KAFKA_VERSION` | The Kafka version | 0.10.2.1 |
 | `KAFKA_HOME` | The home directory of Kafka | /opt/kafka |
 | `KAFKA_PORT` | The port to run Kafka on | 9092 |
-| `KAFKA_*` | Any other environment variables that begin with `KAFKA_` will be written to `/opt/kafka/config/server.properties` accordingly, except for `KAFKA_VERSION` and `KAFKA_HOME`. e.g. `KAFKA_ZOOKEEPER_CONNECT=localhost:2181` -> `zookeeper.connect=localhost:2181` |  |
+| `KAFKA_*` | Any environment variables that begin with `KAFKA_` will be written to `/opt/kafka/config/server.properties` accordingly, except for `KAFKA_VERSION` and `KAFKA_HOME`. e.g. `KAFKA_ZOOKEEPER_CONNECT=localhost:2181` ⤑ `zookeeper.connect=localhost:2181` |  |
 
 ## Usage
 
