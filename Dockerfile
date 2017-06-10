@@ -17,6 +17,9 @@ RUN wget \
 ENV KAFKA_HOME /opt/kafka
 ENV PATH ${PATH}:${KAFKA_HOME}/bin
 
+RUN wget \
+      -q https://github.com/lxcid/kafka-nextbrokerid/releases/download/v1.0.1/nextbrokerid.jar \
+      -O /usr/local/bin/nextbrokerid.jar
 COPY docker-entrypoint.sh /usr/local/bin
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
 

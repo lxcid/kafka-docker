@@ -5,12 +5,19 @@ if [[ -z "$KAFKA_PORT" ]]; then
   export KAFKA_PORT=9092
 fi
 
-if [[ -z "$KAFKA_BROKER_ID" ]]; then
-  export KAFKA_BROKER_ID=-1
+if [[ ! -f /brokerid ]]; then
+  if [[ -z "$KAFKA_BROKER_ID" ]]; then
+    java -jar /usr/local/bin/nextbrokerid.jar -zkc $KAFKA_ZOOKEEPER_CONNECT > /brokerid
+    export KAFKA_BROKER_ID=`cat /brokerid`
+  else
+    echo "$KAFKA_BROKER_ID" > /brokerid
+  fi
+else
+  export KAFKA_BROKER_ID=`cat /brokerid`
 fi
 
 if [[ -z "$KAFKA_LOG_DIRS" ]]; then
-  export KAFKA_LOG_DIRS="/kafka/kafka-logs-$HOSTNAME"
+  export KAFKA_LOG_DIRS="/kafka/kafka-logs-$KAFKA_BROKER_ID"
 fi
 
 if [[ -z "$KAFKA_LISTENERS" ]]; then
